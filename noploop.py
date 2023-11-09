@@ -9,8 +9,10 @@ def main():
             JumpInstruction(0),
             NopInstruction()
     ]
-    memory = Memory(0, insts)
-    cpu = Cpu(memory, True)
+    rom = Memory(0, insts)
+    ram = Memory(0, [0]*128)
+
+    cpu = Cpu(rom, ram, True)
     cpu.run(10)
 
 if __name__ == "__main__":
